@@ -1,7 +1,7 @@
 import React from "react";
 
-const index = () => {
+const CharacterCard = () => {
   return <div>Card</div>;
 };
 
-export default index;
+export default CharacterCard;
