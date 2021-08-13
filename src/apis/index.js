@@ -1,0 +1,1 @@
+const { REACT_BASE_API } = process.env;
