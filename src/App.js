@@ -1,10 +1,12 @@
-import './App.css';
-import CharacterList from './modules/CharacterList';
+import "./App.css";
+import CharacterList from "./modules/CharacterList";
+import Navbar from "./modules/Navbar/index";
 
 function App() {
   return (
     <div>
-    <CharacterList/>
+      <Navbar />
+      <CharacterList />
     </div>
   );
 }
