@@ -14,7 +14,7 @@ export const useCharacters = () => {
 };
 
 export const CharactersProvider = ({ children }) => {
-  const [characters, setCharacters] = useLocalStorage("characters", []);
+  const [characters, setCharacters] = useState([]); // prev useLocalStorage
 
   const findCharacter = (id) => {
     return characters.find((char) => char.id == id);
