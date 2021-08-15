@@ -1,10 +1,13 @@
-import './App.css';
-import CharacterList from './modules/CharacterList';
+import "./App.css";
+import { CharactersProvider } from "./context/CharactersContext";
+import Routes from "./routes";
 
 function App() {
   return (
     <div>
-    <CharacterList/>
+      <CharactersProvider>
+        <Routes />
+      </CharactersProvider>
     </div>
   );
 }
