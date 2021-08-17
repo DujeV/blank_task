@@ -1,5 +1,4 @@
 import React, { useContext, createContext, useState } from "react";
-import useLocalStorage from "../hooks/useLocalStorage";
 
 const CharactersContext = createContext();
 

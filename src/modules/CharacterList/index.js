@@ -2,11 +2,13 @@ import React, { useEffect, useState, useCallback } from "react";
 import { getCharacters } from "../../apis";
 import Searchbar from "../../components/Searchbar";
 import { useCharacters } from "../../context/CharactersContext";
+import { useFavorites } from "../../context/FavoritesContext";
 import CharacterCard from "../CharacterCard";
 import "./index.scss";
 
 const CharacterList = () => {
   const { characters, setCharacters } = useCharacters();
+  const { favorites } = useFavorites();
   const [tempCharacters, setTempCharacters] = useState([]);
   const [term, setTerm] = useState("");
 
@@ -23,7 +25,22 @@ const CharacterList = () => {
     if (term === "") {
       getCharacters().then((data) => {
         console.log(data);
-        setCharacters(data.data.results);
+        const dataCharacters = data.data.results.map((char) => {
+          const res = favorites?.find((fav) => fav.id == char.id);
+          if (res) {
+            return {
+              ...char,
+              clicked: true,
+            };
+          } else {
+            return {
+              ...char,
+              clicked: false,
+            };
+          }
+        });
+        setCharacters(dataCharacters);
+        // setCharacters(data.data.results);
         setTempCharacters(data.data.results);
       });
     } else {
@@ -31,6 +48,7 @@ const CharacterList = () => {
     }
   }, [term, setCharacters, setTempCharacters, findCharactersWithTerm]);
 
+  console.log(characters);
   return (
     <div>
       <Searchbar term={term} setTerm={setTerm} />
