@@ -22,7 +22,7 @@ export const FavoritesProvider = ({ children }) => {
       name: character.name,
     };
 
-    setFavorites(...favorites, newFavorite);
+    setFavorites([...favorites, newFavorite]);
   };
 
   const removeFavorite = (character) => {

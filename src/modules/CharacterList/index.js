@@ -41,7 +41,7 @@ const CharacterList = () => {
         });
         setCharacters(dataCharacters);
         // setCharacters(data.data.results);
-        setTempCharacters(data.data.results);
+        setTempCharacters(dataCharacters);
       });
     } else {
       setTempCharacters(findCharactersWithTerm(term));
