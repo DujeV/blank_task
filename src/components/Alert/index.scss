@@ -1,0 +1,20 @@
+.alert {
+  padding: 0.75rem 1.25rem;
+  color: #fff;
+  text-align: center;
+  text-transform: capitalize;
+  width: 300px;
+  margin: 2rem auto 0 auto;
+  border-radius: 5px;
+  text-transform: capitalize;
+  outline-style: outset;
+}
+.alert-danger {
+  background-color: #ed4539;
+}
+.alert-success {
+  background-color: #4caf50;
+}
+.alert-warning {
+  background-color: #ccc;
+}

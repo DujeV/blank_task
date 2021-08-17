@@ -4,11 +4,12 @@ import Searchbar from "../../components/Searchbar";
 import { useCharacters } from "../../context/CharactersContext";
 import { useFavorites } from "../../context/FavoritesContext";
 import CharacterCard from "../CharacterCard";
+import Alert from "../../components/Alert";
 import "./index.scss";
 
 const CharacterList = () => {
   const { characters, setCharacters } = useCharacters();
-  const { favorites } = useFavorites();
+  const { favorites, alert } = useFavorites();
   const [tempCharacters, setTempCharacters] = useState([]);
   const [term, setTerm] = useState("");
 
@@ -21,6 +22,7 @@ const CharacterList = () => {
     [term]
   );
 
+  console.log(alert.show);
   useEffect(() => {
     if (term === "") {
       getCharacters().then((data) => {
@@ -52,6 +54,9 @@ const CharacterList = () => {
   return (
     <div>
       <Searchbar term={term} setTerm={setTerm} />
+      <div className="alert-vh">
+        {alert.show && <Alert type={alert.type} text={alert.text} />}
+      </div>
       <ul className="characters-list">
         {tempCharacters?.map((char, index) => (
           <CharacterCard key={index} char={char} />

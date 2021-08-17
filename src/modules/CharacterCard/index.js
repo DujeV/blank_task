@@ -7,14 +7,16 @@ import { useFavorites } from "../../context/FavoritesContext";
 
 const CharacterCard = ({ char }) => {
   // after just properties that are necessary not full object
-  const { addFavorite, removeFavorite } = useFavorites();
+  const { addFavorite, removeFavorite, handleAlert } = useFavorites();
 
   const handleAdd = (char) => {
     char.clicked = !char.clicked;
     if (char.clicked) {
       addFavorite(char);
+      handleAlert({ type: "success", text: "Character added to favorites" });
     } else {
       removeFavorite(char);
+      handleAlert({ type: "danger", text: "Character removed from favorites" });
     }
   };
 

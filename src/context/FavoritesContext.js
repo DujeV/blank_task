@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useState, useCallback } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const FavoritesContext = createContext();
@@ -15,6 +15,17 @@ export const useFavorites = () => {
 
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useLocalStorage("favorites", []);
+  const [alert, setAlert] = useState({ show: false });
+
+  const handleAlert = useCallback(
+    ({ type, text }) => {
+      setAlert({ show: true, type, text }); //type:type,text:text
+      setTimeout(() => {
+        setAlert({ show: false });
+      }, 1000);
+    },
+    [setAlert]
+  );
 
   const addFavorite = (character) => {
     const newFavorite = {
@@ -34,6 +45,8 @@ export const FavoritesProvider = ({ children }) => {
 
   const value = {
     favorites,
+    alert,
+    handleAlert,
     addFavorite,
     removeFavorite,
   };
