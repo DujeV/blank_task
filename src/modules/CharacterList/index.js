@@ -33,11 +33,13 @@ const CharacterList = () => {
             return {
               ...char,
               clicked: true,
+              up: false,
             };
           } else {
             return {
               ...char,
               clicked: false,
+              up: false,
             };
           }
         });
@@ -59,7 +61,11 @@ const CharacterList = () => {
       </div>
       <ul className="characters-list">
         {tempCharacters?.map((char, index) => (
-          <CharacterCard key={index} char={char} />
+          <CharacterCard
+            key={index}
+            char={char}
+            setTempCharacters={setTempCharacters}
+          />
         ))}
       </ul>
     </div>
