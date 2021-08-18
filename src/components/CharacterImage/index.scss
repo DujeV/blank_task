@@ -1,0 +1,8 @@
+.character-img {
+  margin-bottom: 15px;
+  opacity: 0;
+  transition: 0.25s ease;
+}
+.active-character-img {
+  opacity: 1;
+}

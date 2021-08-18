@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./index.scss";
 import { Star, StarFilled } from "../../assets/icons";
 import { useFavorites } from "../../context/FavoritesContext";
+import CharacterImage from "../../components/CharacterImage";
 
 const CharacterCard = ({ char }) => {
   // after just properties that are necessary not full object
@@ -23,11 +24,7 @@ const CharacterCard = ({ char }) => {
   return (
     <div className="character-container">
       <h1>{char.name}</h1>
-      <img
-        className="character-img"
-        src={char.thumbnail.path + "/portrait_xlarge.jpg"}
-        alt=""
-      />
+      <CharacterImage path={char.thumbnail.path} />
       <Button>
         <Link
           style={{ textDecoration: "none", color: "black" }}
