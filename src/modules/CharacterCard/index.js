@@ -41,6 +41,7 @@ const CharacterCard = ({ char }) => {
           <StarFilled onClick={() => handleAdd(char)} />
         )}
       </div>
+      <h3>Events...</h3>
     </div>
   );
 };
