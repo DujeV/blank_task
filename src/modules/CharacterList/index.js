@@ -22,7 +22,6 @@ const CharacterList = () => {
     [term]
   );
 
-  console.log(alert.show);
   useEffect(() => {
     if (term === "") {
       getCharacters().then((data) => {
@@ -53,6 +52,7 @@ const CharacterList = () => {
   }, [term, setCharacters, setTempCharacters, findCharactersWithTerm]);
 
   console.log(characters);
+
   return (
     <div>
       <Searchbar term={term} setTerm={setTerm} />
