@@ -12,6 +12,8 @@ const CharacterList = () => {
   const { favorites, alert } = useFavorites();
   const [tempCharacters, setTempCharacters] = useState([]);
   const [term, setTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [charactersPerPage, setCharactersPerPage] = useState(20);
 
   const findCharactersWithTerm = useCallback(
     (term) => {
@@ -51,7 +53,14 @@ const CharacterList = () => {
     }
   }, [term, setCharacters, setTempCharacters, findCharactersWithTerm]);
 
-  console.log(characters);
+  // console.log(characters);
+
+  const indexOfLastCharacter = currentPage * charactersPerPage;
+  const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage;
+  const currentCharacters = characters.slice(
+    indexOfFirstCharacter,
+    indexOfLastCharacter
+  );
 
   return (
     <div className="characterlist-container">
