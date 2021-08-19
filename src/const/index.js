@@ -1,4 +1,4 @@
-const tabs = [
+export const tabs = [
   {
     path: "/",
     name: "Home",
@@ -17,4 +17,21 @@ const tabs = [
   },
 ];
 
-export default tabs;
+export const languages = [
+  {
+    label: "Croatian",
+    value: "hr",
+  },
+  {
+    label: "German",
+    value: "de",
+  },
+  {
+    label: "English",
+    value: "en",
+  },
+  {
+    label: "Spanish",
+    value: "es",
+  },
+];

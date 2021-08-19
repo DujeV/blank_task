@@ -7,6 +7,7 @@ import CharacterCard from "../CharacterCard";
 import Pagination from "../../components/Pagination";
 import Alert from "../../components/Alert";
 import "./index.scss";
+import Translate from "../../components/Translate";
 
 const CharacterList = () => {
   const { characters, setCharacters } = useCharacters();
@@ -78,6 +79,7 @@ const CharacterList = () => {
 
   return (
     <div className="characterlist-container">
+      <Translate />
       <Searchbar term={term} setTerm={setTerm} />
       <div className="alert-vh">
         {alert.show && <Alert type={alert.type} text={alert.text} />}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./index.scss";
 import { Link } from "react-router-dom";
-import tabs from "../../const/index";
+import { tabs } from "../../const/index";
 
 const Navbar = () => {
   const [currentTab, setCurrentTab] = useState("Home");
