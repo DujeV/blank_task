@@ -65,8 +65,6 @@ const CharacterList = () => {
     setTempCharacters,
     findCharactersWithTerm,
     currentPage,
-    indexOfFirstCharacter,
-    indexOfLastCharacter,
   ]);
 
   // console.log(characters);
