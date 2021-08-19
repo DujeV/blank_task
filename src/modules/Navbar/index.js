@@ -1,55 +1,33 @@
 import React, { useState } from "react";
-import "./index.css";
-// import MenuIcon from "@material-ui/icons/Menu";
-// import CloseIcon from "@material-ui/icons/Close";
-// import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import "./index.scss";
 import { Link } from "react-router-dom";
+import tabs from "../../const/index";
 
 const Navbar = () => {
-  const navs = [
-    {
-      tab: "Comics",
-      link: "/comics",
-    },
-    {
-      tab: "Favorites",
-      link: "/favorites",
-    },
-    // {
-    //   tab: "Teams",
-    // },
-    // {
-    //   tab: "Venues",
-    // },
-    // {
-    //   tab: "Schedule",
-    // },
-    // {
-    //   tab: "PTW",
-    // },
-    {
-      tab: "Blog",
-      link: "/blogs",
-    },
-  ];
-  // const [click, setClick] = useState(false);
-  // const handleClick = () => setClick(!click);
-  // const closeMobileMenu = () => setClick(false);
+  const [currentTab, setCurrentTab] = useState("Home");
+  const [click, setClick] = useState(false);
+
+  // *Hamburger bar*
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
 
   return (
     <div className="navbar_container">
       <div className="navbar_content">
-        <div className="logo">
-          <Link to="/">LOGO</Link>
-        </div>
+        <div className="logo">LOGO</div>
         <li className="navbar_menu">
-          {navs.map((nav, index) => (
-            <div className="tabs active">
-              <Link to={nav.link} key={index}>
-                {nav.tab}
+          {tabs.map((tab, index) => {
+            return (
+              <Link
+                to={tab.path}
+                className={tab.name === currentTab ? "tabs active" : "tabs"}
+                key={index}
+                onClick={() => setCurrentTab(tab.name)}
+              >
+                {tab.name}
               </Link>
-            </div>
-          ))}
+            );
+          })}
         </li>
         <div className="login">Login</div>
       </div>
