@@ -1,6 +1,7 @@
 import React from "react";
+import "./index.scss";
 
-const Pagination = ({ charactersPerPage, totalCharacters }) => {
+const Pagination = ({ charactersPerPage, totalCharacters, paginate }) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalCharacters / charactersPerPage); i++) {
@@ -11,7 +12,7 @@ const Pagination = ({ charactersPerPage, totalCharacters }) => {
       <ul className="pagination">
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
-            <a href="#" className="page-link">
+            <a onClick={() => paginate(number)} href="#" className="page-link">
               {number}
             </a>
           </li>
