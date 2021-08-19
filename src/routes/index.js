@@ -5,6 +5,7 @@ import CharacterDetails from "../modules/CharacterDetails";
 import CharacterList from "../modules/CharacterList";
 import Error from "../modules/Error";
 import Navbar from "../modules/Navbar";
+import Footer from "../modules/Footer";
 
 const Routes = () => {
   return (
@@ -21,6 +22,7 @@ const Routes = () => {
         />
         <Route path="*" component={Error} />
       </Switch>
+      <Footer />
     </Router>
   );
 };
