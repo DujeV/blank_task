@@ -20,9 +20,7 @@ const Navbar = () => {
             return (
               <Link
                 to={tab.to}
-                className={
-                  tab.route === currentTab ? "tabs active" : "tabs active"
-                }
+                className={tab.route === currentTab ? "tabs active" : "tabs"}
                 key={index}
                 onClick={() => setCurrentTab(tab.route)}
               >
