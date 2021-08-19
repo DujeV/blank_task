@@ -1,15 +1,19 @@
 const tabs = [
   {
-    to: "/",
-    route: "Comics",
+    path: "/",
+    name: "Home",
   },
   {
-    to: "/favorites",
-    route: "Favorites",
+    path: "/comics",
+    name: "Comics",
   },
   {
-    to: "/about",
-    route: "About",
+    path: "/favorites",
+    name: "Favorites",
+  },
+  {
+    path: "/about",
+    name: "About",
   },
 ];
 

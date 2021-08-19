@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import tabs from "../../const/index";
 
 const Navbar = () => {
-  const [currentTab, setCurrentTab] = useState("Comics");
+  const [currentTab, setCurrentTab] = useState("Home");
   const [click, setClick] = useState(false);
 
   // *Hamburger bar*
@@ -19,12 +19,12 @@ const Navbar = () => {
           {tabs.map((tab, index) => {
             return (
               <Link
-                to={tab.to}
-                className={tab.route === currentTab ? "tabs active" : "tabs"}
+                to={tab.path}
+                className={tab.name === currentTab ? "tabs active" : "tabs"}
                 key={index}
-                onClick={() => setCurrentTab(tab.route)}
+                onClick={() => setCurrentTab(tab.name)}
               >
-                {tab.route}
+                {tab.name}
               </Link>
             );
           })}
