@@ -54,7 +54,7 @@ const CharacterList = () => {
   console.log(characters);
 
   return (
-    <div className="characterlist_container">
+    <div className="characterlist-container">
       <Searchbar term={term} setTerm={setTerm} />
       <div className="alert-vh">
         {alert.show && <Alert type={alert.type} text={alert.text} />}

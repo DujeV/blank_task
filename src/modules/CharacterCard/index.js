@@ -39,8 +39,8 @@ const CharacterCard = ({ char, setTempCharacters }) => {
 
   return (
     <div className="character-container">
-      <h1>{char.name}</h1>
-      <CharacterImage path={char.thumbnail.path} />
+      <h1 className="character-heading">{char.name}</h1>
+      <CharacterImage path={char.thumbnail.path} className="char-image" />
       <Button>
         <Link
           style={{ textDecoration: "none", color: "black" }}
