@@ -4,11 +4,12 @@ import CharacterCard from "../modules/CharacterCard";
 import CharacterDetails from "../modules/CharacterDetails";
 import CharacterList from "../modules/CharacterList";
 import Error from "../modules/Error";
+import Navbar from "../modules/Navbar";
 
 const Routes = () => {
   return (
     <Router>
-      {/* <Navbar /> */}
+      <Navbar />
       <Switch>
         {/* <PrivateRoute /> */}
         <Route exact path="/" component={CharacterList} />

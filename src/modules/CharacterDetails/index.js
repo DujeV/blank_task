@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useCharacters } from "../../context/CharactersContext";
+import "./index.scss";
 
 const CharacterDetails = () => {
   const { findCharacter } = useCharacters();
@@ -8,7 +9,7 @@ const CharacterDetails = () => {
   const char = useMemo(() => findCharacter(id), [id, findCharacter]);
 
   return (
-    <div>
+    <div className="characterdetails">
       <p>{char?.modified}</p>
       <div></div>
     </div>
