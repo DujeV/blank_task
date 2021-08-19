@@ -4,6 +4,7 @@ import Searchbar from "../../components/Searchbar";
 import { useCharacters } from "../../context/CharactersContext";
 import { useFavorites } from "../../context/FavoritesContext";
 import CharacterCard from "../CharacterCard";
+import Pagination from "../../components/Pagination";
 import Alert from "../../components/Alert";
 import "./index.scss";
 
@@ -12,6 +13,8 @@ const CharacterList = () => {
   const { favorites, alert } = useFavorites();
   const [tempCharacters, setTempCharacters] = useState([]);
   const [term, setTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [charactersPerPage] = useState(20);
 
   const findCharactersWithTerm = useCallback(
     (term) => {
@@ -44,14 +47,34 @@ const CharacterList = () => {
         });
         setCharacters(dataCharacters);
         // setCharacters(data.data.results);
-        setTempCharacters(dataCharacters);
+        setTempCharacters(
+          dataCharacters.slice(indexOfFirstCharacter, indexOfLastCharacter)
+        );
       });
     } else {
-      setTempCharacters(findCharactersWithTerm(term));
+      setTempCharacters(
+        findCharactersWithTerm(term).slice(
+          indexOfFirstCharacter,
+          indexOfLastCharacter
+        )
+      );
     }
-  }, [term, setCharacters, setTempCharacters, findCharactersWithTerm]);
+  }, [
+    term,
+    setCharacters,
+    setTempCharacters,
+    findCharactersWithTerm,
+    currentPage,
+  ]);
 
-  console.log(characters);
+  // console.log(characters);
+
+  const indexOfLastCharacter = currentPage * charactersPerPage;
+  const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage;
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div className="characterlist-container">
@@ -68,6 +91,11 @@ const CharacterList = () => {
           />
         ))}
       </ul>
+      <Pagination
+        charactersPerPage={charactersPerPage}
+        totalCharacters={characters.length}
+        paginate={paginate}
+      />
     </div>
   );
 };
