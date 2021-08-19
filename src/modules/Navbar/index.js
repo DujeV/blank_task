@@ -1,56 +1,35 @@
 import React, { useState } from "react";
-import "./index.css";
-import MenuIcon from "@material-ui/icons/Menu";
-import CloseIcon from "@material-ui/icons/Close";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import "./index.scss";
 import { Link } from "react-router-dom";
+import tabs from "../../const/index";
 
 const Navbar = () => {
-  const navs = [
-    {
-      tab: "Comics",
-      link: "/comics",
-    },
-    {
-      tab: "Favorites",
-      link: "/favorites",
-    },
-    // {
-    //   tab: "Teams",
-    // },
-    // {
-    //   tab: "Venues",
-    // },
-    // {
-    //   tab: "Schedule",
-    // },
-    // {
-    //   tab: "PTW",
-    // },
-    {
-      tab: "Blog",
-      link: "/blogs",
-    },
-  ];
+  const [currentTab, setCurrentTab] = useState("Comics");
   const [click, setClick] = useState(false);
+
+  // *Hamburger bar*
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
   return (
     <div className="navbar_container">
       <div className="navbar_content">
-        <div className="logo">
-          <Link to="/">LOGO</Link>
-        </div>
+        <div className="logo">LOGO</div>
         <li className="navbar_menu">
-          {navs.map((nav, index) => (
-            // return {nav.tab}</div>;
-            <div className="tabs active">
-              <Link to={nav.link} key={index}>
-                {nav.tab}
+          {tabs.map((tab, index) => {
+            return (
+              <Link
+                to={tab.to}
+                className={
+                  tab.route === currentTab ? "tabs active" : "tabs active"
+                }
+                key={index}
+                onClick={() => setCurrentTab(tab.route)}
+              >
+                {tab.route}
               </Link>
-            </div>
-          ))}
+            );
+          })}
         </li>
         <div className="login">Login</div>
       </div>

@@ -19,9 +19,8 @@
 .navbar_menu {
   display: flex;
   align-items: center;
-  /* justify-content: space-around; */
-  justify-content: center;
-  max-width: 800px;
+  justify-content: space-around;
+  max-width: 300px;
   width: 100%;
   list-style: none;
 }
@@ -30,7 +29,6 @@
   align-items: center;
   height: 40px;
   text-decoration: none;
-  margin-right: 40px;
 }
 
 .tabs:hover {
