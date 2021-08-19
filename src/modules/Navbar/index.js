@@ -8,19 +8,24 @@ const Navbar = () => {
   const navs = [
     {
       tab: "Comics",
+      link: "/comics",
     },
     {
-      tab: "Teams",
+      tab: "Favorites",
+      link: "/favorites",
     },
-    {
-      tab: "Venues",
-    },
-    {
-      tab: "Schedule",
-    },
-    {
-      tab: "PTW",
-    },
+    // {
+    //   tab: "Teams",
+    // },
+    // {
+    //   tab: "Venues",
+    // },
+    // {
+    //   tab: "Schedule",
+    // },
+    // {
+    //   tab: "PTW",
+    // },
     {
       tab: "Blog",
     },
