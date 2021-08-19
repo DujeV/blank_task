@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./index.css";
-import MenuIcon from "@material-ui/icons/Menu";
-import CloseIcon from "@material-ui/icons/Close";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+// import MenuIcon from "@material-ui/icons/Menu";
+// import CloseIcon from "@material-ui/icons/Close";
+// import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -32,9 +32,9 @@ const Navbar = () => {
       link: "/blogs",
     },
   ];
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+  // const [click, setClick] = useState(false);
+  // const handleClick = () => setClick(!click);
+  // const closeMobileMenu = () => setClick(false);
 
   return (
     <div className="navbar_container">
@@ -44,7 +44,6 @@ const Navbar = () => {
         </div>
         <li className="navbar_menu">
           {navs.map((nav, index) => (
-            // return {nav.tab}</div>;
             <div className="tabs active">
               <Link to={nav.link} key={index}>
                 {nav.tab}
