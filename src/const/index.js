@@ -4,6 +4,10 @@ const tabs = [
     route: "Comics",
   },
   {
+    to: "/favorites",
+    route: "Favorites",
+  },
+  {
     to: "/about",
     route: "About",
   },
