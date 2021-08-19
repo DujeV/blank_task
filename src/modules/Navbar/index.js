@@ -14,7 +14,9 @@ const Navbar = () => {
   return (
     <div className="navbar_container">
       <div className="navbar_content">
-        <div className="logo">LOGO</div>
+        <div className="logo">
+          <Link to="/">LOGO</Link>
+        </div>
         <li className="navbar_menu">
           {tabs.map((tab, index) => {
             return (
