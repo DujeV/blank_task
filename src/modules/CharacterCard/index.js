@@ -6,11 +6,13 @@ import { CaretDown, CaretUp, Star, StarFilled } from "../../assets/icons";
 import { useFavorites } from "../../context/FavoritesContext";
 import CharacterImage from "../../components/CharacterImage";
 import { useCharacters } from "../../context/CharactersContext";
+import { Trans, useTranslation } from "react-i18next";
 
 const CharacterCard = ({ char, setTempCharacters }) => {
   // after just properties that are necessary not full object
   const { addFavorite, removeFavorite, handleAlert } = useFavorites();
   const { characters } = useCharacters();
+  const { t } = useTranslation();
 
   const handleAdd = (char) => {
     char.clicked = !char.clicked;
@@ -47,7 +49,8 @@ const CharacterCard = ({ char, setTempCharacters }) => {
           key={char.id}
           to={`/characters/${char.id}/details`}
         >
-          More details{" "}
+          {t("details")}
+          {/* More details{" "} */}
         </Link>
       </Button>
       <div className="star-container">

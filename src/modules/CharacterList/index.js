@@ -7,7 +7,7 @@ import CharacterCard from "../CharacterCard";
 import Pagination from "../../components/Pagination";
 import Alert from "../../components/Alert";
 import "./index.scss";
-import Translate from "../../components/Translate";
+import { useTranslation } from "react-i18next";
 
 const CharacterList = () => {
   const { characters, setCharacters } = useCharacters();
@@ -16,6 +16,7 @@ const CharacterList = () => {
   const [term, setTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [charactersPerPage] = useState(20);
+  const { t, i18n } = useTranslation();
 
   const findCharactersWithTerm = useCallback(
     (term) => {
@@ -77,9 +78,15 @@ const CharacterList = () => {
     setCurrentPage(pageNumber);
   };
 
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
+
   return (
     <div className="characterlist-container">
-      <Translate />
+      <button onClick={() => changeLanguage("en")}>EN</button>
+      <button onClick={() => changeLanguage("de")}>DE</button>
+      <h1>{t("welcome_msg")}</h1>
       <Searchbar term={term} setTerm={setTerm} />
       <div className="alert-vh">
         {alert.show && <Alert type={alert.type} text={alert.text} />}
